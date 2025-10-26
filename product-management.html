@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product Management | Jana Sosnowski</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            mountbatten_pink: '#957186',
+            uranian_blue: '#bedcfe',
+            cerulean: '#3c7a89',
+            charcoal: '#2e4756',
+            rich_black: '#071e22',
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-rich_black text-white font-sans">
+  <!-- Navbar -->
+  <header class="bg-rich_black/80 fixed top-0 left-0 w-full z-10 backdrop-blur-sm">
+    <nav class="max-w-6xl mx-auto flex justify-between items-center p-4">
+      <h1 class="text-2xl font-semibold text-uranian_blue">Jana Sosnowski</h1>
+      <ul class="hidden md:flex space-x-6 text-mountbatten_pink">
+        <li><a href="index.html" class="hover:text-uranian_blue">Home</a></li>
+        <li><a href="technical-writing.html" class="hover:text-uranian_blue">Technical Writing</a></li>
+        <li><a href="product-management.html" class="text-uranian_blue font-semibold">Product Management</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="pt-32 pb-16 text-center bg-gradient-to-br from-cerulean to-uranian_blue text-rich_black">
+    <h2 class="text-4xl font-bold mb-4">Product Management Portfolio</h2>
+    <p class="text-lg max-w-2xl mx-auto">Translating user feedback into actionable specs, clear priorities, and collaborative solutions.</p>
+  </section>
+
+  <!-- Portfolio Grid -->
+  <section class="max-w-6xl mx-auto px-4 py-16 grid gap-10 md:grid-cols-2 lg:grid-cols-3">
+    <!-- Project 1 -->
+    <div class="bg-charcoal rounded-2xl p-6 shadow hover:shadow-lg transition">
+      <h3 class="text-xl font-semibold text-uranian_blue mb-2">Gradebook Revision</h3>
+      <p class="text-sm text-mountbatten_pink mb-4">Redesigned the LMS gradebook based on teacher feedback to improve grading flexibility, pacing automation, and user efficiency.</p>
+      <p class="text-xs text-gray-400 mb-4">Skills: Product Specs · UX Collaboration · Stakeholder Communication</p>
+      <div class="flex space-x-3">
+        <button onclick="openModal('prdModal')" class="bg-mountbatten_pink text-rich_black px-4 py-2 rounded-full hover:bg-uranian_blue transition">View PRD</button>
+        <button onclick="openModal('fsdModal')" class="bg-uranian_blue text-rich_black px-4 py-2 rounded-full hover:bg-mountbatten_pink transition">View FSD</button>
+      </div>
+    </div>
+
+    <!-- Project 2 Placeholder -->
+    <div class="bg-charcoal rounded-2xl p-6 shadow hover:shadow-lg transition">
+      <h3 class="text-xl font-semibold text-uranian_blue mb-2">Gradebook Calculation Error</h3>
+      <p class="text-sm text-mountbatten_pink mb-4">Identified an LMS grade calculation error and provided a structured report with a recommended product fix.</p>
+      <p class="text-xs text-gray-400 mb-4">Skills: QA Testing · Problem Analysis · Product Reporting</p>
+      <button class="bg-charcoal border border-mountbatten_pink text-mountbatten_pink px-4 py-2 rounded-full cursor-not-allowed">Coming Soon</button>
+    </div>
+
+    <!-- Project 3 Placeholder -->
+    <div class="bg-charcoal rounded-2xl p-6 shadow hover:shadow-lg transition">
+      <h3 class="text-xl font-semibold text-uranian_blue mb-2">Smart Sessions</h3>
+      <p class="text-sm text-mountbatten_pink mb-4">Proposed an intelligent scheduling and reminder feature to support student pacing and engagement.</p>
+      <p class="text-xs text-gray-400 mb-4">Skills: Feature Request · UX Ideation · Stakeholder Interviews</p>
+      <button class="bg-charcoal border border-mountbatten_pink text-mountbatten_pink px-4 py-2 rounded-full cursor-not-allowed">Coming Soon</button>
+    </div>
+  </section>
+
+  <!-- PRD Modal -->
+  <div id="prdModal" class="hidden fixed inset-0 bg-rich_black/90 backdrop-blur-sm flex justify-center items-center p-6 z-50 overflow-y-auto transition-opacity duration-300">
+    <div class="bg-charcoal rounded-2xl max-w-4xl w-full p-8 relative text-left transform scale-95 transition-transform duration-300">
+      <button onclick="closeModal('prdModal')" class="absolute top-4 right-4 text-uranian_blue text-2xl">&times;</button>
+      <h3 class="text-3xl font-bold text-uranian_blue mb-4">Product Requirements Document (PRD)</h3>
+      <div class="overflow-y-auto max-h-[70vh] text-sm text-mountbatten_pink space-y-4">
+        <p><strong>Overview:</strong> Teachers reported several usability issues and missing features in the current LMS gradebook, particularly around assignment categorization, grade weighting, pacing guide integration, and grading workflows. This project defines a revised gradebook experience that allows teachers to customize grading categories, automate pacing-based scoring, and improve navigation and efficiency.</p>
+        <p>The revised gradebook will allow teachers to define assignment categories and weights per course section, reflect those weights in automatic grade calculations, improve visibility into student submissions and grading status, and support resubmission indicators and better filtering by section or course.</p>
+        <p><strong>Problem Statement:</strong> The existing gradebook lacks flexibility for teachers to categorize assignments by type, define grade weighting systems per section, filter or search efficiently, or automatically calculate pacing-related zeros. These limitations lead to frustration, inconsistent grading, and reduced accuracy in progress reporting.</p>
+        <p><strong>Goals & Metrics:</strong> Improve grading flexibility (90% success in configuration), reduce grading time by 25%, ensure accuracy of weighted grades, and achieve satisfaction ratings ≥4.5/5.</p>
+        <p><strong>Stakeholders:</strong> Teachers, Academic Admins, Engineering, QA, Product.</p>
+        <p><strong>User Stories:</strong> Teachers can assign weights totaling 100%; label assignments by category; filter by course/section; identify resubmissions via color; and see pacing-based zeros.</p>
+        <p><strong>High-Level Requirements:</strong> Category setup, weight setup, grade calculation fallback, filtering, search, navigation, visual indicators, pacing integration.</p>
+        <p><strong>Risks & Mitigation:</strong> Weight entry errors (validate to 100%), missing pacing data (warning display), setup complexity (guided wizard).</p>
+        <p><strong>Future Enhancements:</strong> Import/export configurations, analytics dashboard, bulk-edit tools.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FSD Modal -->
+  <div id="fsdModal" class="hidden fixed inset-0 bg-rich_black/90 backdrop-blur-sm flex justify-center items-center p-6 z-50 overflow-y-auto transition-opacity duration-300">
+    <div class="bg-charcoal rounded-2xl max-w-4xl w-full p-8 relative text-left transform scale-95 transition-transform duration-300">
+      <button onclick="closeModal('fsdModal')" class="absolute top-4 right-4 text-uranian_blue text-2xl">&times;</button>
+      <h3 class="text-3xl font-bold text-uranian_blue mb-4">Functional Specification Document (FSD)</h3>
+      <div class="overflow-y-auto max-h-[70vh] text-sm text-mountbatten_pink space-y-4">
+        <p><strong>Overview:</strong> This specification defines the functional and behavioral requirements for the Gradebook Revision project. The goal is to provide teachers with greater control and efficiency through category weighting, pacing integration, visual indicators, and enhanced navigation.</p>
+        <p><strong>User Flow:</strong> Assignment setup adds category dropdown with default 'Assignment'; gradebook setup prompts teacher to enter weights totaling 100%; grading workflow supports keyboard navigation, autofill, and cell color changes for submissions.</p>
+        <p><strong>System Behavior:</strong> Category dropdown saves metadata; weights defined per section; calculation fallback uses points; filters and search apply dynamically; arrow keys and autofill supported; pacing guide integration applies zeros on missed due dates.</p>
+        <p><strong>UI Elements:</strong> Header includes search bar, filter menu, autofill button; cell states indicate ungraded (red), resubmission (yellow), graded (neutral), exempt (gray 'E').</p>
+        <p><strong>Error Handling:</strong> Validation for total weights = 100%; missing category defaults to Assignment; missing pacing guide shows warning; undo exempt triggers recalculation.</p>
+        <p><strong>Data Handling:</strong> Assignments, grade weights, pacing data, and submissions stored in LMS database; integrates with assignment, pacing, and grading modules.</p>
+        <p><strong>Acceptance Criteria:</strong> Teachers can configure and save valid weights, see correct color states for resubmissions, and use filtering/navigation efficiently.</p>
+        <p><strong>Future Enhancements:</strong> Import/export weight templates, pacing analytics, color customization, dashboard features.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-rich_black text-center py-6 text-mountbatten_pink text-sm">
+    © 2025 Jana Sosnowski | Built with TailwindCSS | Hosted on GitHub Pages
+  </footer>
+
+  <script>
+    function openModal(id) {
+      const modal = document.getElementById(id);
+      modal.classList.remove('hidden');
+      setTimeout(() => {
+        modal.querySelector('div').classList.remove('scale-95');
+        modal.querySelector('div').classList.add('scale-100');
+      }, 10);
+    }
+    function closeModal(id) {
+      const modal = document.getElementById(id);
+      modal.querySelector('div').classList.remove('scale-100');
+      modal.querySelector('div').classList.add('scale-95');
+      setTimeout(() => modal.classList.add('hidden'), 200);
+    }
+  </script>
+</body>
+</html>
